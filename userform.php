@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 * Add WP data-table class file
 */
 
-require_once "class.userformlists.php";
+require_once "includes/class.userformlists.php";
 
 
 /**
@@ -83,10 +83,13 @@ add_action('admin_menu', 'userform_admin_menu');
 
 function all_userform_lists_callback(){
 	global $wpdb;
-	echo '<h2>All user lists: </h2>';
+	echo '<h1>All user lists: </h1>';
 	?>
 
 	<div class="form_box">
+
+		<h3>Use this shortcode to view the output: <span style="color:#ff0052">[get_user_data_shortcode]</span></h3>
+
 		<div class="form_box_content">
 			<?php
 				global $wpdb;
@@ -107,11 +110,12 @@ function all_userform_lists_callback(){
 /**
 * User data edit and update calback function
 */
-
+global $getFlag;
 function user_data_edit_callback(){
 
 	global $wpdb;
 	$table_name = $wpdb->prefix.'formdata';
+
 
 	$id = "";
 	if(isset($_POST['update_id'])){
@@ -144,14 +148,22 @@ function user_data_edit_callback(){
 			'email' => $user_email,
 			'details' => $user_bio
 		], [ 'id' => $id ]);
+
+		?>
+		<div class="notice notice-success is-dismissible">
+			<p>Successfully updated!</p>
+		</div>
+		<?php
+		//wp_redirect(admin_url('/admin.php?page=all-userform'));
 	}
 
-	?>
 
+	?>
 
 <div class="userform">
   <div class="row">
     <div class="column">
+
  			<?php 
             global $wpdb;  
             $userId = absint($_GET['editid']);
@@ -201,6 +213,8 @@ function user_data_edit_callback(){
 
 
 
+
+
 /**
 * User delete query
 */
@@ -210,6 +224,8 @@ function userform_item_delete_query(){
 		$deleteItem= absint($_GET['userid']);
 		$table_name = $wpdb->prefix.'formdata';
 		$wpdb->delete( $table_name, array( 'id' => $deleteItem ) );	 
+		?>
+		<?php
  	} 
 }
 userform_item_delete_query();
@@ -287,7 +303,9 @@ function get_user_data(){
 			'email' => $user_email,
 			'details' => $user_bio
 		]);
-		//wp_redirect(home_url());
+		
+		echo '<p class="form-submit-msg"><span>Thank you!</span> Your submission has been sent.</p>';
+
 	}
 
 	?>

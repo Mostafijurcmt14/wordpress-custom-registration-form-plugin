@@ -36,7 +36,10 @@
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
   margin-bottom: 10px;
 }
-
+.userform textarea{
+  height: 150px;
+  resize: none;
+}
 .userform input[type="radio"],
 .userform input[type="checkbox"] {
   margin: 0 4px 8px 0;
@@ -79,6 +82,7 @@
 .userform label {
   display: block;
   margin-bottom: 8px;
+  font-size: 14px;
 }
 
 .userform label.light {
@@ -100,3 +104,8 @@
   border-radius: 100%;
 }
 
+
+.form_box table.fixed {
+    width: 98%;
+    table-layout: unset;
+}
