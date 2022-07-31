@@ -321,7 +321,7 @@ function get_user_data(){
 
         <fieldset>
 
-          <legend>Your Information</legend>
+          <legend>User Registration Form</legend>
 
           <label for="name">First Name:</label>
           <input type="text" name="firstname" required>
@@ -337,7 +337,7 @@ function get_user_data(){
 
         </fieldset>
  
-		<input type="submit" value="<?php _e('Register Account'); ?>"/>
+		<input type="submit" value="<?php _e('Register'); ?>"/>
 
 
       </form>

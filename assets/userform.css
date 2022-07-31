@@ -1,7 +1,7 @@
 .userform form {
    max-width: 600px;
   margin: 40px auto;
-  padding: 10px 20px;
+    padding: 30px;
   background: #f4f7f8;
   border-radius: 8px;
 }
@@ -87,13 +87,14 @@
 }
 
 .userform legend {
-  font-size: 1.4em;
-  margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 19px;
 }
 
 .userform label {
   display: block;
   margin-bottom: 8px;
+      font-size: 16px;
 }
 
 .userform label.light {
